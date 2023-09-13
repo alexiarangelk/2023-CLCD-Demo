@@ -32,8 +32,10 @@ pipeline {
 
         stage('Building image') {
             steps {
-                script {
-                    dockerImage = docker.build imageName
+                dir("simple-app") {
+                    script {
+                        dockerImage = docker.build imageName
+                    }
                 }
             }
         }
